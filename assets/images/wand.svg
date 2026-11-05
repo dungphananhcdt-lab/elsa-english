@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F7FA" />
+      <stop offset="50%" stop-color="#4DD0E1" />
+      <stop offset="100%" stop-color="#0097A7" />
+    </linearGradient>
+    <filter id="wandSparkle">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <!-- Wand Shaft -->
+  <line x1="40" y1="165" x2="135" y2="70" stroke="url(#wandGrad)" stroke-width="8" stroke-linecap="round" />
+  <line x1="40" y1="165" x2="135" y2="70" stroke="#FFF" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+  
+  <!-- Crystal Handle Pommel -->
+  <circle cx="36" cy="169" r="8" fill="#80DEEA" stroke="#00838F" stroke-width="2" />
+
+  <!-- Magic Snowflake Star at Top -->
+  <g transform="translate(145, 60)" filter="url(#wandSparkle)">
+    <!-- Star rays -->
+    <polygon points="0,-35 8,-12 30,-22 15,-2 35,0 15,6 28,26 8,15 0,35 -8,15 -28,26 -15,6 -35,0 -15,-2 -30,-22 -8,-12" fill="#E0F7FA" stroke="#00E5FF" stroke-width="2" />
+    <circle cx="0" cy="0" r="10" fill="#FFFFFF" />
+    <circle cx="0" cy="0" r="5" fill="#00B0FF" />
+  </g>
+
+  <!-- Sparkles -->
+  <polygon points="120,25 122,30 127,32 122,34 120,39 118,34 113,32 118,30" fill="#FFF" />
+  <polygon points="175,70 177,75 182,77 177,79 175,84 173,79 168,77 173,75" fill="#80D8FF" />
+  <polygon points="160,20 162,24 166,26 162,28 160,32 158,28 154,26 158,24" fill="#FFF" />
+</svg>
+

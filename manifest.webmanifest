@@ -1,0 +1,31 @@
+{
+  "name": "Elsa English - Play & Learn",
+  "short_name": "Elsa English",
+  "description": "English learning adventure for toddlers featuring Elsa and Elsa Ngọc Mỹ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen"],
+  "background_color": "#e0f2fe",
+  "theme_color": "#48cae4",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

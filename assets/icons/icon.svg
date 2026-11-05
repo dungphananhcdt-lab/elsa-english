@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#48CAE4" />
+      <stop offset="50%" stop-color="#0096C7" />
+      <stop offset="100%" stop-color="#023E8A" />
+    </linearGradient>
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF" />
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+    </radialGradient>
+    <filter id="iconGlow">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle for iOS -->
+  <rect x="0" y="0" width="512" height="512" rx="115" fill="url(#bgIcon)" />
+
+  <!-- Shimmer rays -->
+  <circle cx="256" cy="200" r="180" fill="url(#starGlow)" opacity="0.3" />
+
+  <!-- Large Central Ice Snowflake -->
+  <g transform="translate(256, 170) scale(1.6)" filter="url(#iconGlow)">
+    <line x1="0" y1="-70" x2="0" y2="70" stroke="#FFF" stroke-width="8" stroke-linecap="round" />
+    <line x1="-60" y1="-35" x2="60" y2="35" stroke="#FFF" stroke-width="8" stroke-linecap="round" />
+    <line x1="-60" y1="35" x2="60" y2="-35" stroke="#FFF" stroke-width="8" stroke-linecap="round" />
+    
+    <path d="M -15 -45 L 0 -30 L 15 -45 M -15 45 L 0 30 L 15 45" fill="none" stroke="#E0F7FA" stroke-width="6" stroke-linecap="round" />
+    <circle cx="0" cy="0" r="14" fill="#E0F7FA" stroke="#00B4D8" stroke-width="4" />
+    <circle cx="0" cy="0" r="6" fill="#FFF" />
+  </g>
+
+  <!-- Sparkle Stars -->
+  <polygon points="100,100 108,125 133,133 108,141 100,166 92,141 67,133 92,125" fill="#FFE082" filter="url(#iconGlow)" />
+  <polygon points="410,120 416,138 434,144 416,150 410,168 404,150 386,144 404,138" fill="#FFF" filter="url(#iconGlow)" />
+  <polygon points="390,320 395,335 410,340 395,345 390,360 385,345 370,340 385,335" fill="#FFE082" />
+
+  <!-- Cute Crown at Top -->
+  <polygon points="256,70 280,100 310,80 290,130 222,130 202,80 232,100" fill="#FFD54F" stroke="#FFA000" stroke-width="3" filter="url(#iconGlow)" />
+  <circle cx="256" cy="70" r="5" fill="#FFF" />
+
+  <!-- Banner / Text: ELSA ABC -->
+  <rect x="76" y="380" width="360" height="85" rx="42" fill="#FFFFFF" opacity="0.95" />
+  <text x="256" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="44" fill="#0077B6" text-anchor="middle" letter-spacing="2">ELSA ABC ❄️</text>
+</svg>
+

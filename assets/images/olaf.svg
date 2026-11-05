@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360" width="100%" height="100%">
+  <defs>
+    <radialGradient id="snowGrad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="70%" stop-color="#E8F4FB" />
+      <stop offset="100%" stop-color="#C5E2F3" />
+    </radialGradient>
+    <linearGradient id="carrotGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#FF9233" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+    <linearGradient id="stickGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#795548" />
+      <stop offset="100%" stop-color="#4E342E" />
+    </linearGradient>
+  </defs>
+
+  <!-- Twig Hair (3 twigs on head) -->
+  <path d="M 148 70 Q 145 35 140 25" stroke="url(#stickGrad)" stroke-width="4.5" stroke-linecap="round" fill="none" />
+  <path d="M 152 70 Q 155 30 162 18" stroke="url(#stickGrad)" stroke-width="5" stroke-linecap="round" fill="none" />
+  <path d="M 155 70 Q 165 40 178 30" stroke="url(#stickGrad)" stroke-width="4" stroke-linecap="round" fill="none" />
+
+  <!-- Twig Arms -->
+  <!-- Left Arm waving -->
+  <path d="M 115 200 Q 80 180 50 150 M 50 150 L 38 140 M 50 150 L 42 162 M 50 150 L 58 135" stroke="url(#stickGrad)" stroke-width="6" stroke-linecap="round" fill="none" />
+  <!-- Right Arm waving -->
+  <path d="M 185 200 Q 220 180 250 155 M 250 155 L 265 145 M 250 155 L 262 168 M 250 155 L 245 140" stroke="url(#stickGrad)" stroke-width="6" stroke-linecap="round" fill="none" />
+
+  <!-- Bottom Snowball (Legs/base) -->
+  <ellipse cx="125" cy="325" rx="30" ry="22" fill="url(#snowGrad)" />
+  <ellipse cx="175" cy="325" rx="30" ry="22" fill="url(#snowGrad)" />
+  <ellipse cx="150" cy="275" rx="65" ry="50" fill="url(#snowGrad)" />
+  
+  <!-- Middle Snowball (Torso) -->
+  <ellipse cx="150" cy="205" rx="46" ry="38" fill="url(#snowGrad)" />
+
+  <!-- Head Snowball (Egg-shaped head) -->
+  <path d="M 150 68 C 110 68 100 115 108 145 C 114 168 130 180 150 180 C 170 180 186 168 192 145 C 200 115 190 68 150 68 Z" fill="url(#snowGrad)" />
+
+  <!-- Coal Buttons on Body -->
+  <ellipse cx="150" cy="195" rx="7" ry="6" fill="#263238" />
+  <ellipse cx="150" cy="250" rx="9" ry="8" fill="#263238" />
+  <ellipse cx="150" cy="285" rx="8" ry="7.5" fill="#263238" />
+
+  <!-- Big Happy Open Mouth -->
+  <path d="M 125 140 Q 150 185 175 140 Z" fill="#212121" />
+  <!-- Tongue -->
+  <path d="M 140 162 Q 150 150 160 162 Q 150 178 140 162 Z" fill="#EF5350" />
+  <!-- Single Cute Buck Tooth -->
+  <rect x="142" y="140" width="16" height="12" rx="3" fill="#FFFFFF" />
+
+  <!-- Carrot Nose -->
+  <polygon points="150,126 150,136 215,142" fill="url(#carrotGrad)" stroke="#E65100" stroke-width="1" />
+  <line x1="165" y1="129" x2="167" y2="137" stroke="#D84315" stroke-width="1.5" />
+  <line x1="185" y1="133" x2="187" y2="139" stroke="#D84315" stroke-width="1.5" />
+
+  <!-- Big Olaf Eyes -->
+  <circle cx="132" cy="115" r="13" fill="#FFFFFF" stroke="#B0BEC5" stroke-width="1" />
+  <circle cx="168" cy="115" r="13" fill="#FFFFFF" stroke="#B0BEC5" stroke-width="1" />
+  
+  <circle cx="135" cy="116" r="7" fill="#212121" />
+  <circle cx="165" cy="116" r="7" fill="#212121" />
+  
+  <circle cx="133" cy="113" r="2.5" fill="#FFFFFF" />
+  <circle cx="163" cy="113" r="2.5" fill="#FFFFFF" />
+
+  <!-- Eyebrows -->
+  <path d="M 122 100 Q 133 93 142 101" stroke="#3E2723" stroke-width="3.5" stroke-linecap="round" fill="none" />
+  <path d="M 158 101 Q 167 93 178 100" stroke="#3E2723" stroke-width="3.5" stroke-linecap="round" fill="none" />
+
+  <!-- Rosy cheeks -->
+  <circle cx="116" cy="142" r="7" fill="#FF8A80" opacity="0.4" />
+  <circle cx="184" cy="142" r="7" fill="#FF8A80" opacity="0.4" />
+</svg>
+

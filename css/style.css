@@ -1,0 +1,3355 @@
+/* Elsa English & Fairy Forest Full Stylesheet (iOS & Toddler Optimized) */
+:root {
+  --primary-ice: #00b4d8;
+  --primary-deep: #0077b6;
+  --bg-gradient: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 40%, #7dd3fc 100%);
+  --card-bg: rgba(255, 255, 255, 0.94);
+  --gold-star: #ffd166;
+  --text-main: #0c4a6e;
+  --safe-top: env(safe-area-inset-top, 16px);
+  --safe-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  overflow-x: hidden;
+  touch-action: manipulation;
+  position: relative;
+}
+
+/* Background Snowfall */
+#snowflakes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.falling-snowflake {
+  position: absolute;
+  top: -20px;
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9), 0 0 12px rgba(125, 211, 252, 0.8);
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); }
+  100% { transform: translateY(105vh) rotate(360deg); }
+}
+
+/* Main App Container (Responsive for iPhone & iPad) */
+#app-main {
+  position: relative;
+  z-index: 10;
+  max-width: 540px;
+  width: 100%;
+  margin: 0 auto;
+  padding: calc(var(--safe-top) + 6px) 10px calc(var(--safe-bottom) + 14px) 10px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* iPad & Tablet Landscape / Portrait Optimization */
+@media (min-width: 650px) {
+  #app-main {
+    max-width: 760px;
+    padding: calc(var(--safe-top) + 16px) 24px calc(var(--safe-bottom) + 24px) 24px;
+  }
+  .hero-poster-box {
+    height: 300px;
+  }
+  .real-elsa-hero {
+    max-height: 290px;
+  }
+  .real-olaf-hero {
+    max-height: 180px;
+  }
+  .map-zones-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .map-zone-card {
+    padding: 22px 14px;
+  }
+  .zone-icon {
+    font-size: 48px;
+  }
+  .zone-name {
+    font-size: 18px;
+  }
+  .animals-grid-2x2, .ponds-grid-2x2 {
+    gap: 16px;
+  }
+  .animal-avatar-box {
+    width: 105px;
+    height: 105px;
+  }
+  .animal-big-emoji {
+    font-size: 68px;
+  }
+  .animal-card-name {
+    font-size: 20px;
+  }
+  .pond-box-water {
+    height: 120px;
+  }
+  .pond-num-pill {
+    font-size: 28px;
+  }
+  .piano-keys-row {
+    height: 200px;
+  }
+  .tracing-board {
+    width: 420px;
+    height: 350px;
+  }
+  #letter-trace-canvas {
+    width: 420px;
+    height: 350px;
+  }
+  .guide-dotted-letter {
+    font-size: 250px;
+  }
+  .letter-tool-bar {
+    width: 420px;
+  }
+}
+
+/* Header & Nav */
+.hero-top-bar, .zone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.app-brand-pill {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.15);
+  border: 2px solid #ffffff;
+}
+
+.brand-snowflake {
+  font-size: 20px;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.brand-title {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--primary-deep);
+}
+
+.star-badge {
+  background: #ffffff;
+  color: #d97706;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 24px;
+  border: 2px solid var(--gold-star);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+}
+
+.parent-gate-btn, .back-btn {
+  background: #ffffff;
+  color: var(--primary-deep);
+  border: 2px solid #7dd3fc;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 119, 182, 0.1);
+}
+
+.parent-gate-btn:active, .back-btn:active {
+  transform: scale(0.92);
+}
+
+.zone-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #034f84;
+}
+
+/* Instruction Box */
+.zone-instruction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border: 2px solid #7dd3fc;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.1);
+}
+
+.guide-avatar {
+  width: 55px;
+  height: 70px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.speech-bubble {
+  flex: 1;
+}
+
+.speech-bubble p {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #034f84;
+  margin-bottom: 4px;
+}
+
+.sound-repeat-btn {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* BÁO ĐỎ - FAIL BANNER & HIỆU ỨNG È È */
+.fail-alert-banner {
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: center;
+  padding: 10px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.4);
+}
+
+.flash-red {
+  animation: flashRedAnim 0.4s ease;
+}
+
+@keyframes flashRedAnim {
+  0% { transform: scale(0.9); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.fail-pick, .pond-fail-red, .animal-fail-red {
+  border-color: #ef4444 !important;
+  background: #fee2e2 !important;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.shake-card {
+  /* Shaking removed as requested */
+}
+
+@keyframes shakeAnim {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* ROUND PROGRESS & VICTORY SCREEN */
+.round-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 8px 14px;
+  margin-bottom: 10px;
+  border: 1.5px solid #bae6fd;
+}
+
+.round-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0369a1;
+}
+
+.progress-track {
+  flex: 1;
+  height: 10px;
+  background: #e0f2fe;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #0284c7);
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.victory-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 65vh;
+}
+
+.victory-card {
+  background: #ffffff;
+  border: 4px solid #ffd166;
+  border-radius: 30px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(217, 119, 6, 0.25);
+  max-width: 380px;
+}
+
+.victory-icon {
+  font-size: 60px;
+  margin-bottom: 8px;
+}
+
+.victory-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0077b6;
+  margin-bottom: 6px;
+}
+
+.victory-sub {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+.victory-stars {
+  font-size: 20px;
+  font-weight: 900;
+  color: #d97706;
+  background: #fef3c7;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.victory-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn-replay, .action-btn-map {
+  flex: 1;
+  border: none;
+  border-radius: 18px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.action-btn-replay { background: #e0f2fe; color: #0284c7; }
+.action-btn-map { background: linear-gradient(135deg, #00b4d8, #0077b6); color: #ffffff; }
+
+/* 1. VƯỜN SẮC MÀU */
+.fruits-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.fruit-bubble {
+  border: 3px solid #ffffff;
+  border-radius: 24px;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.fruit-emoji { font-size: 38px; margin-bottom: 4px; }
+.fruit-label { font-size: 13px; font-weight: 800; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+
+/* 2. AO SỐ ĐẾM (LƯỚI 2x2 RÕ RÀNG) */
+.big-num-target {
+  font-size: 18px;
+  color: #0077b6;
+}
+
+.ponds-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.pond-box-item {
+  background: #ffffff;
+  border: 3px solid #38bdf8;
+  border-radius: 24px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 119, 182, 0.12);
+  cursor: pointer;
+}
+
+.pond-box-water {
+  width: 100%;
+  height: 90px;
+  background: radial-gradient(circle, #67e8f9 0%, #06b6d4 100%);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  overflow: hidden;
+}
+
+.fish-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pond-tiny-fish {
+  font-size: 20px;
+  animation: swim 2.5s infinite alternate ease-in-out;
+}
+
+.pond-num-pill {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0077b6;
+  margin-top: 8px;
+}
+
+.pond-correct {
+  border-color: #10b981 !important;
+  background: #ecfdf5 !important;
+}
+
+/* 3. TRANG TRẠI VUI NHỘN (LƯỚI 4 CON VẬT 2x2) */
+.animals-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  margin: 8px auto 0;
+}
+
+.animal-grid-card {
+  background: #ffffff;
+  border: 3px solid #7dd3fc;
+  border-radius: 24px;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 119, 182, 0.1);
+  cursor: pointer;
+}
+
+.animal-avatar-box {
+  width: 80px;
+  height: 80px;
+  background: #f0fdf4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.animal-big-emoji {
+  font-size: 52px;
+}
+
+.animal-card-name {
+  font-size: 17px;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.animal-correct {
+  border-color: #10b981 !important;
+  background: #ecfdf5 !important;
+}
+
+/* 4. NHÀ ÂM NHẠC: BÀI HÁT ELSA & BẢNG CHỮ CÁI ABC */
+.music-featured-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.music-song-card {
+  border: none;
+  border-radius: 20px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.elsa-theme-song {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+}
+
+.abc-theme-song {
+  background: linear-gradient(135deg, #9333ea, #7e22ce);
+  color: #ffffff;
+}
+
+.song-card-icon {
+  font-size: 32px;
+}
+
+.song-card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.song-card-text strong {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.song-card-text span {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.song-play-badge {
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 14px;
+}
+
+.music-melody-display {
+  background: #ffffff;
+  border: 2px solid #bae6fd;
+  border-radius: 16px;
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0284c7;
+  margin-bottom: 12px;
+}
+
+.piano-stage-box {
+  background: #ffffff;
+  border: 3px solid #7dd3fc;
+  border-radius: 22px;
+  padding: 12px 8px;
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.15);
+  margin-bottom: 14px;
+}
+
+.piano-keys-row {
+  display: flex;
+  gap: 6px;
+  height: 160px;
+}
+
+.piano-stage-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0369a1;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.piano-key-pro {
+  flex: 1;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 65%, var(--key-tint) 100%);
+  border: 2px solid #cbd5e1;
+  border-radius: 0 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.1s ease;
+  min-height: 110px;
+}
+
+.key-down {
+  transform: translateY(6px);
+  background: var(--key-tint) !important;
+  color: #ffffff !important;
+}
+
+.key-solfege {
+  font-size: 17px;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.key-name-sub {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.abc-soundboard-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0369a1;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.abc-soundboard-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.abc-sound-key {
+  background: #ffffff;
+  border: 2px solid #7dd3fc;
+  border-radius: 12px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 119, 182, 0.1);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.abc-char {
+  font-size: 15px;
+  font-weight: 900;
+  color: #0077b6;
+  line-height: 1;
+}
+
+.abc-emoji {
+  font-size: 13px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.abc-highlight, .abc-pressed {
+  background: #fef08a !important;
+  color: #854d0e !important;
+  border-color: #eab308 !important;
+  transform: scale(1.15);
+}
+
+.bubble-speaking {
+  animation: pulseSpeaking 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSpeaking {
+  from { transform: scale(1); box-shadow: 0 6px 18px rgba(0, 119, 182, 0.15); }
+  to { transform: scale(1.03); box-shadow: 0 10px 24px rgba(0, 180, 216, 0.35); }
+}
+
+/* 5. ĐỒI CHỮ CÁI (ELSA ĐỌC Ở GIỮA - MINH HỌA TO RÕ - TRẢI NGHIỆM IPAD HOÀN HẢO) */
+.letter-screen-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.alphabet-stage-container {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.alphabet-hero-stage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.arrow-nav-btn {
+  background: #ffffff;
+  border: 3px solid #7dd3fc;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #0284c7;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.18);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.arrow-nav-btn:active {
+  transform: scale(0.9);
+  background: #e0f2fe;
+}
+
+/* KHUNG TRUNG TÂM HOÀNG GIA: ELSA ĐỌC CHỮ & MINH HỌA (NHỎ GỌN HƠN) */
+.alphabet-center-card {
+  flex: 1;
+  background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%);
+  border: 3px solid #38bdf8;
+  border-radius: 24px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 14px;
+  box-shadow: 0 8px 22px rgba(0, 119, 182, 0.16);
+  position: relative;
+  overflow: visible;
+}
+
+.compact-top-card {
+  padding: 8px 14px;
+}
+
+/* CÔNG CHÚA ELSA ĐỌC CHỮ (COMPACT) */
+.elsa-reading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  min-width: 130px;
+}
+
+.elsa-speech-bubble {
+  background: #ffffff;
+  border: 2px solid #00b4d8;
+  border-radius: 18px;
+  padding: 5px 12px;
+  box-shadow: 0 4px 10px rgba(0, 180, 216, 0.16);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  position: relative;
+  white-space: nowrap;
+  animation: floatBubble 2.5s ease-in-out infinite;
+}
+
+.elsa-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 7px 0;
+  border-style: solid;
+  border-color: #00b4d8 transparent transparent;
+  display: block;
+  width: 0;
+}
+
+.speech-quote {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.speech-mic-icon {
+  font-size: 14px;
+  animation: pulseMic 1.5s infinite;
+}
+
+.elsa-avatar-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.elsa-reading-img {
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 180, 216, 0.35));
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.elsa-reading-bounce {
+  animation: elsaJoy 0.6s ease;
+}
+
+.elsa-glow-ring {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle, rgba(125, 211, 252, 0.35) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.elsa-tap-hint {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0284c7;
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+/* THẺ MINH HỌA VÀ CHỮ CÁI */
+.letter-illustration-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.letter-giant-symbol {
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sym-cap {
+  font-weight: 900;
+  font-size: 60px;
+}
+
+/* KHUNG HÌNH MINH HỌA */
+.giant-illustration-badge {
+  width: 95px;
+  height: 95px;
+  background: radial-gradient(circle, #ffffff 0%, #e0f2fe 100%);
+  border: 3px solid #38bdf8;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 119, 182, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.giant-illustration-badge:active {
+  transform: scale(0.92);
+}
+
+.giant-badge-emoji {
+  font-size: 56px;
+  line-height: 1;
+  display: inline-block;
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.giant-badge-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.letter-word-banner {
+  background: #ffffff;
+  border: 2px solid #7dd3fc;
+  border-radius: 18px;
+  padding: 4px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 10px rgba(0, 119, 182, 0.1);
+  cursor: pointer;
+}
+
+.word-text {
+  font-size: 17px;
+  font-weight: 900;
+  color: #0369a1;
+}
+
+.sound-chip-btn {
+  background: #e0f2fe;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BẢNG VẼ NÉT CHỮ CHO CẢ CHỮ HOA VÀ CHỮ THƯỜNG */
+.tracing-section-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.tracing-guide-pill {
+  background: #ffffff;
+  border: 2px solid #7dd3fc;
+  border-radius: 16px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0284c7;
+  box-shadow: 0 2px 6px rgba(0, 119, 182, 0.1);
+}
+
+.alphabet-trace-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.tracing-board, .dual-trace-board, .single-trace-board {
+  position: relative;
+  width: 460px;
+  height: 230px;
+  background: #ffffff;
+  border: 3.5px solid #7dd3fc;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 119, 182, 0.16);
+  overflow: hidden;
+}
+
+/* DÒNG KẺ Ô LY MẦM NON */
+.kindergarten-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.k-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.k-line-top {
+  top: 25%;
+  border-top: 1.5px solid #bae6fd;
+}
+
+.k-line-mid {
+  top: 50%;
+  border-top: 2px dashed #93c5fd;
+}
+
+.k-line-base {
+  top: 75%;
+  border-top: 2px solid #60a5fa;
+}
+
+.single-guide, .dual-guide {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  color: rgba(186, 230, 253, 0.65);
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+
+.guide-cap {
+  font-size: 170px;
+  line-height: 1;
+}
+
+.guide-low {
+  display: none;
+}
+
+#letter-trace-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  touch-action: none;
+}
+
+.trace-side-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.letter-tool-btn {
+  border: none;
+  border-radius: 16px;
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 119, 182, 0.12);
+  transition: transform 0.15s;
+}
+
+.letter-tool-btn:active {
+  transform: scale(0.93);
+}
+
+.tool-clear {
+  background: #ffffff;
+  color: #64748b;
+  border: 2px solid #cbd5e1;
+}
+
+.tool-listen {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 2px solid #7dd3fc;
+}
+
+.tool-sparkle {
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  color: #ffffff;
+}
+
+/* THANH DẢI CHỮ CÁI A - Z CUỘN NGANG */
+.letters-ribbon-bar {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 8px 6px;
+  width: 100%;
+  max-width: 680px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.letters-ribbon-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.ribbon-letter-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 2px solid #bae6fd;
+  background: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0369a1;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 119, 182, 0.1);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.ribbon-letter-btn:active {
+  transform: scale(0.9);
+}
+
+.active-ribbon-letter {
+  background: linear-gradient(135deg, #facc15, #f59e0b) !important;
+  color: #78350f !important;
+  border-color: #d97706 !important;
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* HOME SCREEN ROYAL DUO: ELSA BÊN TRÁI & BÉ NGỌC MỸ BÊN PHẢI */
+.hero-royal-duo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 680px;
+  height: 220px;
+  margin: 10px auto 14px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.hero-left-characters {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.real-elsa-hero {
+  max-height: 215px;
+  width: auto;
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 16px rgba(0, 119, 182, 0.35));
+  animation: floatElsa 3.8s ease-in-out infinite;
+}
+
+.real-olaf-hero {
+  max-height: 125px;
+  width: auto;
+  position: relative;
+  z-index: 2;
+  margin-left: -15px;
+  cursor: pointer;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+  animation: floatOlaf 3.2s ease-in-out infinite reverse;
+}
+
+.hero-right-ngocmy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 4;
+}
+
+.ngocmy-photo-frame {
+  width: 165px;
+  height: 215px;
+  background: #ffffff;
+  border: 4px solid #facc15;
+  border-radius: 26px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(234, 179, 8, 0.35);
+  cursor: pointer;
+  overflow: visible;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ngocmy-photo-frame:active {
+  transform: scale(0.93);
+}
+
+.ngocmy-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 22px;
+  display: block;
+}
+
+.ngocmy-crown-badge {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  font-size: 32px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+  animation: pulseCrown 2s infinite ease-in-out;
+}
+
+@keyframes pulseCrown {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(5deg); }
+}
+
+.ngocmy-name-tag {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #facc15;
+  border-radius: 14px;
+  padding: 3px 12px;
+  font-size: 12px;
+  font-weight: 900;
+  color: #78350f;
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* 4 NÚT TIỆN ÍCH TRÊN HOME */
+.home-four-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.btn-pill-music {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+}
+
+.btn-pill-coloring {
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+}
+
+.btn-pill-gallery {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+}
+
+.btn-pill-stickers {
+  background: linear-gradient(135deg, #eab308, #ca8a04);
+}
+
+/* ============================================================
+   TÔ MÀU ELSA (COLORING STUDIO STYLES)
+============================================================ */
+.coloring-screen-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.coloring-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.coloring-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 480px;
+}
+
+.page-title-pill {
+  background: #ffffff;
+  border: 2.5px solid #38bdf8;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0284c7;
+  box-shadow: 0 4px 10px rgba(0, 119, 182, 0.12);
+}
+
+.coloring-canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.coloring-paper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border: 4px solid #7dd3fc;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 119, 182, 0.18);
+}
+
+.coloring-outline-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+#paint-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.coloring-toolbar {
+  background: #ffffff;
+  border: 3px solid #7dd3fc;
+  border-radius: 24px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 6px 18px rgba(0, 119, 182, 0.12);
+}
+
+.palette-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.color-swatch-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.color-swatch-btn:active {
+  transform: scale(0.9);
+}
+
+.active-color {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 3.5px #0284c7;
+}
+
+.tools-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.brush-sizes-group {
+  display: flex;
+  gap: 6px;
+}
+
+.brush-size-btn {
+  background: #f0f9ff;
+  border: 2px solid #bae6fd;
+  border-radius: 14px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0284c7;
+  cursor: pointer;
+}
+
+.active-size {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0369a1;
+}
+
+.action-buttons-group {
+  display: flex;
+  gap: 8px;
+}
+
+.coloring-thumbs-bar {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 8px 6px;
+  width: 100%;
+  max-width: 520px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.coloring-thumbs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.thumb-sheet-btn {
+  flex-shrink: 0;
+  width: 56px;
+  height: 72px;
+  border-radius: 14px;
+  border: 2px solid #bae6fd;
+  background: #ffffff;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 119, 182, 0.1);
+  transition: transform 0.15s;
+}
+
+.thumb-sheet-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.active-thumb {
+  border-color: #f59e0b;
+  border-width: 3px;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* ============================================================
+   BỘ SƯU TẬP HOÀNG GIA (ROYAL GALLERY STYLES)
+============================================================ */
+.gallery-screen-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 35px;
+}
+
+.gallery-featured-banner {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 16px;
+}
+
+.spotlight-card {
+  flex: 1;
+  max-width: 320px;
+  background: linear-gradient(145deg, #ffffff 0%, #fffbeb 100%);
+  border: 3.5px solid #facc15;
+  border-radius: 24px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(234, 179, 8, 0.22);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.spotlight-card:active {
+  transform: scale(0.96);
+}
+
+.spotlight-elsa {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%);
+  border-color: #38bdf8;
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.18);
+}
+
+.spotlight-crown {
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  font-size: 24px;
+}
+
+.spotlight-img {
+  width: 65px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.spotlight-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.spotlight-name {
+  font-size: 16px;
+  font-weight: 900;
+  color: #78350f;
+}
+
+.spotlight-elsa .spotlight-name {
+  color: #0369a1;
+}
+
+.spotlight-sub {
+  font-size: 12px;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.spotlight-elsa .spotlight-sub {
+  color: #0284c7;
+}
+
+.gallery-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.gallery-card-item {
+  background: #ffffff;
+  border: 2.5px solid #bae6fd;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.12);
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.gallery-card-item:hover, .gallery-card-item:active {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+}
+
+.card-thumb-wrap {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: #f0f9ff;
+}
+
+.gallery-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-tag-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0, 180, 216, 0.9);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.card-caption {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.card-item-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0369a1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-speak-btn {
+  background: #e0f2fe;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* FULLSCREEN LIGHTBOX MODAL */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 74, 110, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.modal-content-card {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border: 4px solid #38bdf8;
+  border-radius: 28px;
+  padding: 16px;
+  max-width: 540px;
+  width: 90%;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #64748b;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.modal-photo-stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal-nav-arrow {
+  background: #ffffff;
+  border: 2.5px solid #7dd3fc;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #0284c7;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.modal-image-holder {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 360px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f8fafc;
+}
+
+.modal-main-img {
+  max-height: 360px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.modal-caption-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 0 4px;
+}
+
+.modal-title {
+  font-size: 17px;
+  font-weight: 900;
+  color: #0369a1;
+  margin: 0;
+}
+
+.modal-desc {
+  font-size: 13px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+}
+
+.modal-actions-group {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-audio-btn {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 2px solid #7dd3fc;
+  border-radius: 14px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.modal-love-btn {
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .alphabet-center-card {
+    flex-direction: row;
+    padding: 8px 12px;
+    gap: 10px;
+    justify-content: space-around;
+  }
+  .elsa-reading-img {
+    height: 120px;
+  }
+  .tracing-board, .dual-trace-board, .single-trace-board {
+    width: min(94vw, 420px);
+    height: min(58vw, 240px);
+  }
+  .guide-cap {
+    font-size: 135px;
+  }
+  .guide-low {
+    display: none;
+  }
+  .hero-royal-duo {
+    padding: 0 10px;
+  }
+  .ngocmy-photo-frame {
+    width: 130px;
+    height: 170px;
+  }
+  .real-elsa-hero {
+    max-height: 170px;
+  }
+  .real-olaf-hero {
+    max-height: 95px;
+  }
+  .gallery-featured-banner {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.real-elsa-hero {
+  max-height: 220px;
+  width: auto;
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 16px rgba(0, 119, 182, 0.35));
+  animation: floatElsa 3.8s ease-in-out infinite;
+}
+
+.real-olaf-hero {
+  max-height: 135px;
+  width: auto;
+  position: relative;
+  z-index: 2;
+  margin-left: -20px;
+  cursor: pointer;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+  animation: floatOlaf 3.2s ease-in-out infinite reverse;
+}
+
+@keyframes floatElsa { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes floatOlaf { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+.hero-dialogue-bubble {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 14px 18px;
+  text-align: center;
+  margin-bottom: 14px;
+  border: 2px solid #bae6fd;
+  box-shadow: 0 6px 18px rgba(0, 119, 182, 0.12);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hero-clickable-bubble:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(0, 119, 182, 0.2);
+}
+
+.dialogue-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0284c7;
+  line-height: 1.45;
+  margin-bottom: 4px;
+}
+
+.bubble-tap-hint {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0ea5e9;
+  background: #f0f9ff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid #e0f2fe;
+}
+
+.big-explore-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 28px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 119, 182, 0.35);
+}
+
+.quick-nav-row { display: flex; gap: 10px; margin-top: 10px; }
+.quick-pill-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #7dd3fc;
+  border-radius: 18px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0369a1;
+  cursor: pointer;
+}
+
+.map-guide-banner {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  border: 2px solid #7dd3fc;
+}
+
+.map-elsa-mini { width: 50px; height: 60px; object-fit: contain; }
+.map-guide-text { font-size: 13.5px; font-weight: 700; color: #0369a1; }
+
+.map-zones-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.map-zone-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2.5px solid #ffffff;
+  border-radius: 22px;
+  padding: 16px 10px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 119, 182, 0.12);
+  cursor: pointer;
+}
+
+.zone-garden { border-color: #f472b6; background: linear-gradient(135deg, #fff, #fdf2f8); }
+.zone-pond { border-color: #38bdf8; background: linear-gradient(135deg, #fff, #f0f9ff); }
+.zone-farm { border-color: #4ade80; background: linear-gradient(135deg, #fff, #f0fdf4); }
+.zone-letters { border-color: #fbbf24; background: linear-gradient(135deg, #fff, #fffbeb); }
+.zone-music { border-color: #c084fc; background: linear-gradient(135deg, #fff, #faf5ff); }
+.zone-habits { border-color: #fb7185; background: linear-gradient(135deg, #fff, #fff1f2); }
+.zone-puzzle { border-color: #38bdf8; background: linear-gradient(135deg, #ffffff, #e0f2fe); }
+
+.zone-badge {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.zone-icon { font-size: 38px; margin-bottom: 4px; }
+.zone-name { font-size: 15px; font-weight: 800; color: #0f172a; margin-bottom: 2px; }
+.zone-sub { font-size: 11.5px; font-weight: 600; color: #64748b; }
+
+.map-footer-row { display: flex; gap: 10px; }
+.extra-btn {
+  flex: 1;
+  background: #ffffff;
+  border: 2px solid #7dd3fc;
+  border-radius: 18px;
+  padding: 10px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0369a1;
+  cursor: pointer;
+}
+
+/* Habtis & Stickers */
+.habits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.habit-card {
+  background: #ffffff;
+  border: 2.5px solid #fda4af;
+  border-radius: 22px;
+  padding: 14px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.habit-icon { font-size: 40px; margin-bottom: 4px; }
+.habit-title { font-size: 14px; font-weight: 800; color: #9f1239; margin-bottom: 4px; }
+.habit-desc { font-size: 11px; color: #64748b; margin-bottom: 8px; }
+.habit-star-btn { background: #fff1f2; color: #e11d48; border: 1.5px solid #fecdd3; border-radius: 12px; padding: 4px 10px; font-size: 11px; font-weight: 800; }
+
+.sticker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sticker-card { background: #ffffff; border-radius: 22px; padding: 12px 10px; text-align: center; border: 2px solid #e2e8f0; }
+.sticker-card.unlocked { border-color: #ffd166; background: linear-gradient(135deg, #ffffff, #fffbeb); }
+.sticker-img-box { position: relative; height: 85px; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+.sticker-img { max-width: 75px; max-height: 80px; object-fit: contain; }
+.lock-tag { position: absolute; bottom: 0; background: rgba(15, 23, 42, 0.75); color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 10px; }
+.spark-tag { position: absolute; top: 0; right: 0; background: #fef08a; color: #854d0e; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 8px; }
+.sticker-name { font-size: 13px; font-weight: 800; color: #0f172a; }
+
+/* Sparkles Particle */
+.sparkle-particle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 24px;
+  z-index: 9999;
+  animation: sparkleExplode 0.85s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes sparkleExplode {
+  0% { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.4); opacity: 0; }
+}
+
+.bounce-pop { animation: bouncePopAnim 0.4s ease; }
+@keyframes bouncePopAnim { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
+
+/* Khung 4 Màu (2x2 Grid) */
+.colors-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  margin: 8px auto 0;
+}
+
+.fruit-bubble-4 {
+  border: 3.5px solid #ffffff;
+  border-radius: 26px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.fruit-bubble-4:active {
+  transform: scale(0.94);
+}
+
+/* Dots đếm số trong Ao cá */
+.pond-count-dots {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  justify-content: center;
+}
+
+.fish-dot {
+  font-size: 14px;
+  color: #0284c7;
+}
+
+/* Alphabet Hill với hình minh họa to rõ */
+.letter-visual-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 6px;
+}
+
+.letter-big-emoji {
+  font-size: 44px;
+  line-height: 1;
+}
+
+/* Lưới 10 Thói Quen Tốt */
+.habits-header-bubble {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border: 2px solid #7dd3fc;
+}
+
+.habits-grid-10 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.habit-tile-btn {
+  background: #ffffff;
+  border: 2.5px solid #bae6fd;
+  border-radius: 22px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 14px rgba(0, 119, 182, 0.1);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.habit-tile-btn:active {
+  transform: scale(0.95);
+}
+
+.habit-tile-emoji {
+  font-size: 40px;
+  margin-bottom: 6px;
+}
+
+.habit-tile-text {
+  font-size: 15px;
+  font-weight: 900;
+  color: #034f84;
+  margin-bottom: 2px;
+}
+
+.habit-tile-sub {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Floating BGM Music Control Button */
+.bgm-music-toggle-btn {
+  background: rgba(255, 255, 255, 0.94);
+  border: 2px solid #7dd3fc;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0284c7;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 3px 8px rgba(0, 119, 182, 0.12);
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.bgm-music-toggle-btn.bgm-active {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  border-color: #0284c7;
+  color: #0369a1;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  animation: bgmGentlePulse 2.4s infinite ease-in-out;
+}
+
+@keyframes bgmGentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* Feed Princess Elsa Drag & Drop Stage */
+.feed-screen-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.feed-stage-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.elsa-feed-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.elsa-crown-halo {
+  font-size: 18px;
+  color: #ffd166;
+  margin-bottom: 2px;
+  animation: floatHalo 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes floatHalo {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.elsa-stage-img-3d {
+  height: 190px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 119, 182, 0.25));
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.elsa-happy-eating {
+  animation: elsaEatBounce 0.45s ease-in-out 3;
+}
+
+@keyframes elsaEatBounce {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(2deg); }
+}
+
+.elsa-feed-bubble {
+  background: #ffffff;
+  border: 2.5px solid #38bdf8;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0369a1;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  box-shadow: 0 6px 16px rgba(0, 119, 182, 0.14);
+}
+
+/* Glowing Royal Plate Dropzone */
+.royal-plate-dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: radial-gradient(circle, #ffffff 30%, #e0f2fe 100%);
+  border: 3px dashed #38bdf8;
+  border-radius: 26px;
+  padding: 8px 24px;
+  min-width: 220px;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.plate-dish-emoji {
+  font-size: 26px;
+}
+
+.plate-drop-hint {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.royal-plate-dropzone.plate-glow-waiting {
+  border-color: #0284c7;
+  border-style: solid;
+  background: #f0f9ff;
+  box-shadow: 0 0 20px rgba(2, 132, 199, 0.45);
+  transform: scale(1.03);
+}
+
+.royal-plate-dropzone.plate-hover-ready {
+  border-color: #10b981;
+  background: #ecfdf5;
+  box-shadow: 0 0 26px rgba(16, 185, 129, 0.6);
+  transform: scale(1.12);
+}
+
+.royal-plate-dropzone.plate-food-arrived {
+  animation: plateShine 0.5s ease;
+}
+
+@keyframes plateShine {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.16); box-shadow: 0 0 30px #ffd166; }
+  100% { transform: scale(1); }
+}
+
+.feed-guide-pill {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0c4a6e;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #bae6fd;
+  border-radius: 16px;
+  padding: 5px 14px;
+  margin-bottom: 12px;
+}
+
+.food-tray-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.draggable-food-card {
+  background: #ffffff;
+  border: 3px solid #7dd3fc;
+  border-radius: 22px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 119, 182, 0.12);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.draggable-food-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.18);
+}
+
+.draggable-food-card.is-dragging-card {
+  cursor: grabbing;
+  opacity: 0.95;
+  box-shadow: 0 16px 32px rgba(0, 180, 216, 0.45);
+  border-color: #0284c7;
+}
+
+.food-card-emoji {
+  font-size: 46px;
+  margin-bottom: 2px;
+  pointer-events: none;
+}
+
+.food-card-name {
+  font-size: 15px;
+  font-weight: 900;
+  color: #0c4a6e;
+  pointer-events: none;
+}
+
+.drag-handle-hint {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-top: 4px;
+  pointer-events: none;
+}
+
+.food-delivered-success {
+  opacity: 0.4;
+  transform: scale(0.8);
+}
+
+/* Character Avatars on Home & Map Buttons */
+.home-btn-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.zone-character-thumb {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 6px;
+  display: block;
+  border: 2.5px solid #bae6fd;
+  box-shadow: 0 4px 10px rgba(0, 119, 182, 0.18);
+  background: #ffffff;
+}
+
+.footer-btn-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #ffffff;
+  vertical-align: middle;
+}
+
+.extra-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.quick-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.animal-friend-photo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* ==========================================
+   ELSA'S MAGIC CINEMA (Short Videos Theater)
+   ========================================== */
+.cinema-screen-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.cinema-main-stage {
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cinema-theater-box {
+  background: #0f172a;
+  border: 3px solid #38bdf8;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.35);
+  margin-bottom: 20px;
+}
+
+.cinema-top-crown {
+  background: linear-gradient(90deg, #0284c7, #38bdf8, #818cf8);
+  color: #ffffff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 6px 12px;
+  letter-spacing: 0.5px;
+}
+
+.cinema-viewport {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background: #000000;
+}
+
+.cinema-iframe-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.offline-cinema-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+}
+
+.offline-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.offline-overlay-controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.45);
+  gap: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.offline-big-play-btn {
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 28px;
+  padding: 12px 26px;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.offline-big-play-btn:active {
+  transform: scale(0.95);
+}
+
+.offline-lyrics-pill {
+  background: rgba(0, 0, 0, 0.75);
+  color: #e0f2fe;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  max-width: 90%;
+}
+
+.cinema-now-playing-bar {
+  background: #1e293b;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #ffffff;
+}
+
+.now-playing-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.video-tag-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #38bdf8;
+  text-transform: uppercase;
+}
+
+.video-current-title {
+  font-size: 15px;
+  font-weight: 900;
+  color: #f8fafc;
+}
+
+.video-current-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.cinema-theater-toggle-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid #38bdf8;
+  color: #e0f2fe;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cinema-theater-toggle-btn.active-theater-mode {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.cinema-playlist-header {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.playlist-header-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0369a1;
+}
+
+.cinema-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cinema-video-card {
+  background: #ffffff;
+  border: 2px solid #e0f2fe;
+  border-radius: 18px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 119, 182, 0.08);
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.cinema-video-card:hover, .cinema-video-card.active-video-card {
+  border-color: #0284c7;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.2);
+}
+
+.cinema-video-card.active-video-card {
+  border-width: 2.5px;
+}
+
+.video-card-thumb-wrap {
+  position: relative;
+  width: 90px;
+  height: 62px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: radial-gradient(circle, #f0f9ff, #bae6fd);
+}
+
+.video-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.video-play-indicator {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.video-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: hidden;
+}
+
+.video-card-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.video-card-title {
+  font-size: 13.5px;
+  font-weight: 900;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video-card-sub {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================
+   ELSA'S ROYAL PHOTO PUZZLE (4 & 6 Frames)
+   ========================================== */
+.puzzle-screen-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.puzzle-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 12px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mode-pill-group {
+  display: flex;
+  gap: 6px;
+}
+
+.mode-select-btn {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #7dd3fc;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0369a1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-select-btn.active-mode {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border-color: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.28);
+}
+
+.hint-action-group {
+  display: flex;
+  gap: 6px;
+}
+
+.puzzle-hint-btn, .puzzle-next-btn {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #bae6fd;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0c4a6e;
+  cursor: pointer;
+}
+
+.puzzle-hint-btn.hint-on {
+  background: #fef08a;
+  border-color: #eab308;
+  color: #854d0e;
+}
+
+.puzzle-photo-ribbon {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  max-width: 520px;
+  width: 100%;
+  padding: 6px 4px 10px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.puzzle-photo-ribbon::-webkit-scrollbar {
+  display: none;
+}
+
+.ribbon-photo-item {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  border: 2.5px solid #ffffff;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 119, 182, 0.15);
+  background: #e2e8f0;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.ribbon-photo-item.active-ribbon-photo {
+  border-color: #0284c7;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+}
+
+.ribbon-photo-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: radial-gradient(circle, #f0f9ff, #bae6fd);
+  border-radius: 12px;
+}
+
+.ribbon-crown-tag {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.puzzle-photo-title-pill {
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid #bae6fd;
+  border-radius: 14px;
+  padding: 4px 14px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0369a1;
+  margin-bottom: 12px;
+}
+
+.puzzle-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Puzzle Target Board - Responsive Mobile Edge-to-Edge */
+.puzzle-board-card {
+  position: relative;
+  width: min(94vw, 400px);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  background: radial-gradient(circle at center, #ffffff 0%, #f0f9ff 55%, #e0f2fe 100%);
+  border: 4px solid #7dd3fc;
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.22);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 2), 1fr);
+  grid-template-rows: repeat(var(--grid-rows, 2), 1fr);
+  gap: 3px;
+  padding: 4px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.puzzle-board-card.mode-6-board {
+  aspect-ratio: 3 / 2;
+  max-width: 440px;
+}
+
+.puzzle-board-solved {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  gap: 0 !important;
+  border-color: #38bdf8;
+  box-shadow: 0 12px 35px rgba(56, 189, 248, 0.5);
+  animation: puzzleSolvedGlow 2s infinite ease-in-out;
+}
+
+.puzzle-solved-full-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #ffffff 0%, #f0f9ff 45%, #e0f2fe 80%, #bae6fd 100%) !important;
+  border-radius: 18px;
+}
+
+.puzzle-solved-full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center center;
+  display: block;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  animation: fullPhotoMerge 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fullPhotoMerge {
+  0% { transform: scale(0.92); opacity: 0.6; filter: brightness(1.3); }
+  50% { transform: scale(1.02); filter: brightness(1.15); }
+  100% { transform: scale(1); opacity: 1; filter: brightness(1); }
+}
+
+.puzzle-solved-sparkle-layer {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 26px;
+  pointer-events: none;
+  animation: floatSparkle 1.8s infinite ease-in-out;
+}
+
+@keyframes floatSparkle {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-4px) scale(1.2); opacity: 1; }
+}
+
+@keyframes puzzleSolvedGlow {
+  0%, 100% { box-shadow: 0 12px 35px rgba(56, 189, 248, 0.45); }
+  50% { box-shadow: 0 16px 45px rgba(234, 179, 8, 0.6); }
+}
+
+/* Watermark Guide behind slots */
+.puzzle-watermark-guide {
+  position: absolute;
+  inset: 0;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.puzzle-watermark-guide.show-hint-guide {
+  opacity: 0.22;
+}
+
+/* Individual Slot */
+.puzzle-slot-box {
+  position: relative;
+  border: 2px dashed #93c5fd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(240, 249, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.puzzle-slot-box.slot-filled {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+}
+
+.puzzle-slot-box.slot-hover-target {
+  background: rgba(186, 230, 253, 0.9);
+  border-color: #0284c7;
+  transform: scale(1.02);
+}
+
+.puzzle-slot-box.slot-wrong-flash {
+  border-color: #ef4444;
+  background: rgba(254, 202, 202, 0.8);
+}
+
+.slot-empty-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.slot-number-badge {
+  font-size: 16px;
+  font-weight: 900;
+  color: #60a5fa;
+  background: rgba(255, 255, 255, 0.8);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.puzzle-placed-piece {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  animation: piecePopSnap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes piecePopSnap {
+  0% { transform: scale(0.85); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Puzzle Tray & Pieces */
+.puzzle-tray-section {
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tray-guide-text {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 4px 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.puzzle-tray-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+  min-height: 110px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #bae6fd;
+  border-radius: 20px;
+}
+
+.puzzle-tray-card {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 14px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 119, 182, 0.22);
+  cursor: grab;
+  touch-action: none;
+  background-repeat: no-repeat;
+  transition: transform 0.15s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.puzzle-tray-card:active {
+  cursor: grabbing;
+}
+
+.puzzle-tray-card.is-dragging-piece {
+  opacity: 0.95;
+  box-shadow: 0 16px 30px rgba(2, 132, 199, 0.5);
+}
+
+.piece-num-tag {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-size: 11px;
+  font-weight: 900;
+  color: #0284c7;
+  background: rgba(255, 255, 255, 0.9);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Victory Banner */
+.puzzle-victory-banner {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 3px solid #4ade80;
+  border-radius: 22px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.25);
+  width: 100%;
+}
+
+.victory-crown-star {
+  font-size: 28px;
+  margin-bottom: 2px;
+}
+
+.victory-headline {
+  font-size: 18px;
+  font-weight: 900;
+  color: #15803d;
+  margin: 0 0 4px;
+}
+
+.victory-subline {
+  font-size: 14px;
+  font-weight: 800;
+  color: #eab308;
+  margin: 0 0 12px;
+}
+
+.victory-btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.puzzle-action-btn {
+  border: none;
+  border-radius: 18px;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.puzzle-action-btn.replay-btn {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.puzzle-action-btn.next-pic-btn {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35);
+}
+
+/* ==========================================
+   ZONE 1: COLOR REVEAL CARDS (Elsa BG + Tint Overlay)
+   Khung rộng, ảnh thu nhỏ hiển thị 100% không mất đầu/vương miện
+   ========================================== */
+.color-reveal-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 1.1;
+  min-height: 160px;
+  max-height: 220px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 0;
+  background: radial-gradient(circle at center, #ffffff 0%, #e0f2fe 55%, #bae6fd 100%);
+}
+
+.color-reveal-card:active {
+  transform: scale(0.96);
+}
+
+.color-reveal-card.card-revealed-success {
+  border-color: #38bdf8;
+  box-shadow: 0 10px 24px rgba(56, 189, 248, 0.45);
+}
+
+.color-reveal-bg-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 45%, #ffffff 0%, #f0f9ff 45%, #e0f2fe 75%, #bae6fd 100%);
+  position: relative;
+}
+
+.color-reveal-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center bottom;
+  padding: 4px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(2, 132, 199, 0.18));
+}
+
+.color-tint-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 18px;
+  backdrop-filter: blur(1.5px);
+}
+
+.color-tint-overlay.tint-dissolved {
+  opacity: 0 !important;
+  transform: scale(1.18);
+  pointer-events: none;
+}
+
+.color-reveal-emoji {
+  font-size: 44px;
+  margin-bottom: 2px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.35));
+}
+
+.color-reveal-name {
+  font-size: 21px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================
+   ZONE 2: COUNTING SCENE & NUMBER BOXES
+   Sân khấu rộng, nền hiển thị trọn vẹn, ô chọn số to dễ bấm
+   ========================================== */
+.count-scene-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: clamp(240px, 58vw, 320px);
+  border-radius: 26px;
+  border: 4px solid #7dd3fc;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.25);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #dbeafe;
+  margin: 0 auto 16px;
+}
+
+.count-scene-glass-tint {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(15, 23, 42, 0.1) 100%);
+  pointer-events: none;
+}
+
+.count-creature-sprite {
+  position: absolute;
+  font-size: 40px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+  transition: transform 0.3s ease;
+  animation: floatCreature 2.4s infinite ease-in-out;
+  user-select: none;
+}
+
+@keyframes floatCreature {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.06); }
+}
+
+.creature-jump-dance {
+  animation: creatureDanceJump 0.6s ease-in-out infinite !important;
+}
+
+@keyframes creatureDanceJump {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-16px) rotate(15deg) scale(1.25); }
+}
+
+.count-selection-guide {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0369a1;
+  margin-bottom: 10px;
+}
+
+.count-choices-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+
+.count-number-box {
+  flex: 1;
+  max-width: 105px;
+  height: 72px;
+  background: #ffffff;
+  border: 3.5px solid #7dd3fc;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 119, 182, 0.18);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 0;
+}
+
+.count-number-digit {
+  font-size: 32px;
+  font-weight: 900;
+  color: #0284c7;
+}
+
+.count-number-box:active {
+  transform: scale(0.94);
+}
+
+.count-number-box.count-box-correct {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  border-color: #16a34a;
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.45);
+}
+
+.count-number-box.count-box-correct .count-number-digit {
+  color: #ffffff;
+}
+
+.count-number-box.count-box-wrong {
+  border-color: #ef4444;
+  background: #fee2e2;
+  animation: countShake 0.4s ease;
+}
+
+.count-number-box.count-box-wrong .count-number-digit {
+  color: #dc2626;
+}
+
+@keyframes countShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* ==========================================
+   ZONE 3: ANIMAL STICKER REVEAL (Elsa BG + Sticker Vanish)
+   Khung rộng, ảnh thu nhỏ hiển thị trọn vẹn không mất đầu
+   ========================================== */
+.animal-reveal-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 1.1;
+  min-height: 160px;
+  max-height: 220px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 0;
+  background: radial-gradient(circle at center, #ffffff 0%, #e0f2fe 55%, #bae6fd 100%);
+}
+
+.animal-reveal-card:active {
+  transform: scale(0.96);
+}
+
+.animal-reveal-bg-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 45%, #ffffff 0%, #f0f9ff 45%, #e0f2fe 75%, #bae6fd 100%);
+  position: relative;
+}
+
+.animal-reveal-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center bottom;
+  padding: 4px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(2, 132, 199, 0.18));
+}
+
+.animal-sticker-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(2px);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 18px;
+}
+
+.animal-sticker-layer.sticker-vanished {
+  opacity: 0 !important;
+  transform: scale(1.35) rotate(22deg);
+  pointer-events: none;
+}
+
+.animal-sticker-emoji {
+  font-size: 52px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+.animal-sticker-name {
+  font-size: 16px;
+  font-weight: 900;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 14px;
+  border-radius: 14px;
+  margin-top: 6px;
+  border: 2px solid #bae6fd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+
+
+

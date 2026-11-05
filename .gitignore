@@ -1,0 +1,8 @@
+# Build & Packaging
+*.ipa
+build/
+*.zip
+
+# Temporary & docs
+*.tmp
+Document/

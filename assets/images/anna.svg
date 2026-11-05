@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="annaHair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C26A3B" />
+      <stop offset="50%" stop-color="#9C441D" />
+      <stop offset="100%" stop-color="#732B0D" />
+    </linearGradient>
+    <linearGradient id="annaDress" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B4965" />
+      <stop offset="50%" stop-color="#2B2D42" />
+      <stop offset="100%" stop-color="#161B33" />
+    </linearGradient>
+    <linearGradient id="annaCape" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D90429" />
+      <stop offset="100%" stop-color="#941B3C" />
+    </linearGradient>
+  </defs>
+
+  <!-- Magenta Cape -->
+  <path d="M 100 180 C 60 230 50 310 60 345 C 100 335 140 340 150 340 C 160 340 200 335 240 345 C 250 310 240 230 200 180 Z" fill="url(#annaCape)" />
+
+  <!-- Dress Skirt -->
+  <path d="M 115 220 L 90 345 C 130 355 170 355 210 345 L 185 220 Z" fill="url(#annaDress)" />
+  <!-- Floral embroidery detail -->
+  <circle cx="150" cy="320" r="5" fill="#EF233C" />
+  <circle cx="135" cy="325" r="4" fill="#64DFDF" />
+  <circle cx="165" cy="325" r="4" fill="#64DFDF" />
+
+  <!-- Bodice -->
+  <path d="M 120 180 L 115 225 L 185 225 L 180 180 Z" fill="#1B1B1E" />
+  <path d="M 130 185 Q 150 200 170 185" stroke="#E9C46A" stroke-width="3" fill="none" />
+  <path d="M 150 190 L 150 220" stroke="#E9C46A" stroke-width="2.5" />
+
+  <!-- Arms / Light Blue Sleeves -->
+  <path d="M 120 185 Q 95 215 90 235 Q 98 240 108 232 Q 122 215 125 190 Z" fill="#72EFDD" />
+  <path d="M 180 185 Q 205 215 210 235 Q 202 240 192 232 Q 178 215 175 190 Z" fill="#72EFDD" />
+  
+  <!-- Hands -->
+  <circle cx="92" cy="237" r="7" fill="#FFE5D9" />
+  <circle cx="208" cy="237" r="7" fill="#FFE5D9" />
+
+  <!-- Twin Braids -->
+  <!-- Left Braid -->
+  <path d="M 110 150 C 95 190 90 240 100 275 C 105 280 110 275 108 268 C 102 240 108 190 120 155 Z" fill="url(#annaHair)" stroke="#732B0D" stroke-width="1.5" />
+  <!-- Right Braid -->
+  <path d="M 190 150 C 205 190 210 240 200 275 C 195 280 190 275 192 268 C 198 240 192 190 180 155 Z" fill="url(#annaHair)" stroke="#732B0D" stroke-width="1.5" />
+  <!-- White hair streak on right side -->
+  <path d="M 185 145 C 195 180 202 230 196 265" stroke="#FFFFFF" stroke-width="2.5" fill="none" opacity="0.9" />
+
+  <!-- Head / Face -->
+  <circle cx="150" cy="135" r="50" fill="#FFEAE0" />
+  <path d="M 115 130 C 115 175 150 185 150 185 C 150 185 185 175 185 130 Z" fill="#FFEAE0" />
+
+  <!-- Big Green/Hazel Eyes -->
+  <!-- Left Eye -->
+  <ellipse cx="132" cy="135" rx="12" ry="14" fill="#FFF" />
+  <ellipse cx="134" cy="135" rx="8" ry="10" fill="#2A9D8F" />
+  <circle cx="135" cy="135" r="5" fill="#1C3F5E" />
+  <circle cx="132" cy="131" r="3" fill="#FFF" />
+  <circle cx="137" cy="138" r="1.5" fill="#FFF" />
+  <path d="M 118 123 Q 132 118 145 125" stroke="#4A3423" stroke-width="3" stroke-linecap="round" fill="none" />
+
+  <!-- Right Eye -->
+  <ellipse cx="168" cy="135" rx="12" ry="14" fill="#FFF" />
+  <ellipse cx="166" cy="135" rx="8" ry="10" fill="#2A9D8F" />
+  <circle cx="165" cy="135" r="5" fill="#1C3F5E" />
+  <circle cx="164" cy="131" r="3" fill="#FFF" />
+  <circle cx="169" cy="138" r="1.5" fill="#FFF" />
+  <path d="M 155 125 Q 168 118 182 123" stroke="#4A3423" stroke-width="3" stroke-linecap="round" fill="none" />
+
+  <!-- Cute Freckles! -->
+  <circle cx="126" cy="148" r="1.5" fill="#C26A3B" />
+  <circle cx="131" cy="151" r="1.5" fill="#C26A3B" />
+  <circle cx="136" cy="149" r="1.5" fill="#C26A3B" />
+  <circle cx="164" cy="149" r="1.5" fill="#C26A3B" />
+  <circle cx="169" cy="151" r="1.5" fill="#C26A3B" />
+  <circle cx="174" cy="148" r="1.5" fill="#C26A3B" />
+
+  <!-- Rosy Cheeks -->
+  <circle cx="120" cy="150" r="9" fill="#FF9EAA" opacity="0.5" />
+  <circle cx="180" cy="150" r="9" fill="#FF9EAA" opacity="0.5" />
+
+  <!-- Cheerful Smile -->
+  <path d="M 140 155 Q 150 167 160 155" stroke="#C84B68" stroke-width="3.5" stroke-linecap="round" fill="none" />
+
+  <!-- Anna Hair Bangs & Cap -->
+  <path d="M 102 125 C 98 80 140 68 150 68 C 160 68 202 80 198 125 C 185 92 165 96 150 105 C 135 96 115 92 102 125 Z" fill="url(#annaHair)" stroke="#732B0D" stroke-width="1.5" />
+</svg>
+

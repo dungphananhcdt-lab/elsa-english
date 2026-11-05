@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#FFA726" />
+      <stop offset="60%" stop-color="#FF7043" />
+      <stop offset="100%" stop-color="#D84315" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#81C784" />
+      <stop offset="100%" stop-color="#2E7D32" />
+    </linearGradient>
+  </defs>
+  <!-- Green Leaves -->
+  <path d="M 140 60 C 145 30 165 20 175 25 C 165 40 150 50 140 60 Z" fill="url(#leafGrad)" />
+  <path d="M 145 55 C 160 35 185 45 180 55 C 165 60 155 60 145 55 Z" fill="url(#leafGrad)" />
+  <path d="M 135 65 C 140 40 125 25 120 30 C 122 45 130 55 135 65 Z" fill="url(#leafGrad)" />
+
+  <!-- Carrot Body -->
+  <path d="M 145 65 C 150 75 145 85 135 90 L 45 165 C 38 170 30 165 35 155 L 125 60 C 135 55 142 58 145 65 Z" fill="url(#cGrad)" />
+
+  <!-- Carrot Ridges / Texture -->
+  <path d="M 125 78 Q 118 70 112 75" stroke="#BF360C" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <path d="M 105 95 Q 98 88 92 93" stroke="#BF360C" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <path d="M 85 112 Q 78 105 72 110" stroke="#BF360C" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <path d="M 65 130 Q 58 123 52 128" stroke="#BF360C" stroke-width="2" stroke-linecap="round" fill="none" />
+</svg>
+

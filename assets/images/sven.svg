@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="reindeerFur" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8D6E63" />
+      <stop offset="100%" stop-color="#5D4037" />
+    </linearGradient>
+    <linearGradient id="antlerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D7CCC8" />
+      <stop offset="100%" stop-color="#A1887F" />
+    </linearGradient>
+  </defs>
+
+  <!-- Big Antlers -->
+  <!-- Left Antler -->
+  <path d="M 120 100 C 100 60 70 50 50 60 C 65 75 75 90 75 105 C 55 90 40 100 45 115 C 60 120 75 125 90 125 M 70 50 C 70 30 90 20 100 35 C 105 50 108 70 115 90" stroke="url(#antlerGrad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <!-- Right Antler -->
+  <path d="M 180 100 C 200 60 230 50 250 60 C 235 75 225 90 225 105 C 245 90 260 100 255 115 C 240 120 225 125 210 125 M 230 50 C 230 30 210 20 200 35 C 195 50 192 70 185 90" stroke="url(#antlerGrad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+  <!-- Ears -->
+  <ellipse cx="90" cy="120" rx="20" ry="10" transform="rotate(-30 90 120)" fill="url(#reindeerFur)" />
+  <ellipse cx="90" cy="120" rx="14" ry="6" transform="rotate(-30 90 120)" fill="#FFCCBC" />
+  <ellipse cx="210" cy="120" rx="20" ry="10" transform="rotate(30 210 120)" fill="url(#reindeerFur)" />
+  <ellipse cx="210" cy="120" rx="14" ry="6" transform="rotate(30 210 120)" fill="#FFCCBC" />
+
+  <!-- Body -->
+  <path d="M 105 210 C 80 260 80 340 110 350 C 130 350 170 350 190 350 C 220 340 220 260 195 210 Z" fill="url(#reindeerFur)" />
+  <!-- Fluffy White Chest Fur -->
+  <path d="M 125 220 C 115 270 125 310 150 310 C 175 310 185 270 175 220 Z" fill="#EFEBE9" />
+  
+  <!-- Harness with bell -->
+  <path d="M 105 230 Q 150 260 195 230" stroke="#C62828" stroke-width="8" fill="none" />
+  <circle cx="150" cy="245" r="9" fill="#FFD54F" stroke="#FFA000" stroke-width="2" />
+
+  <!-- Head -->
+  <ellipse cx="150" cy="150" rx="50" ry="55" fill="url(#reindeerFur)" />
+
+  <!-- Snout / Muzzle -->
+  <ellipse cx="150" cy="180" rx="35" ry="25" fill="#D7CCC8" />
+  <!-- Big Friendly Sven Nose -->
+  <ellipse cx="150" cy="168" rx="16" ry="10" fill="#3E2723" />
+  <ellipse cx="145" cy="170" rx="4" ry="2.5" fill="#212121" />
+  <ellipse cx="155" cy="170" rx="4" ry="2.5" fill="#212121" />
+
+  <!-- Big Happy Eyes -->
+  <ellipse cx="128" cy="135" rx="11" ry="13" fill="#FFF" />
+  <ellipse cx="130" cy="135" rx="7" ry="9" fill="#4E342E" />
+  <circle cx="128" cy="132" r="3" fill="#FFF" />
+
+  <ellipse cx="172" cy="135" rx="11" ry="13" fill="#FFF" />
+  <ellipse cx="170" cy="135" rx="7" ry="9" fill="#4E342E" />
+  <circle cx="168" cy="132" r="3" fill="#FFF" />
+
+  <!-- Sven Tongue / Smile -->
+  <path d="M 140 192 Q 150 202 160 192" stroke="#4E342E" stroke-width="3" fill="none" />
+  <ellipse cx="150" cy="198" rx="7" ry="6" fill="#FF8A80" />
+</svg>
+
