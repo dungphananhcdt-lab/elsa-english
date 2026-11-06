@@ -4,7 +4,7 @@ class SoundEngine {
     this.ctx = null;
     this.isMuted = false;
     this.isBgmDisabled = false;
-    this.bgmVolume = 0.20; // Soft, gentle ambient background music
+    this.bgmVolume = 0.04; // Very soft, gentle ambient whisper background music
     this.activeMelodyTimeout = [];
     this.letItGoAudio = null;
     this.abcAudio = null;
@@ -101,7 +101,7 @@ class SoundEngine {
 
   duckBackgroundMusic(isDucked) {
     if (!this.letItGoAudio || this.letItGoAudio.paused) return;
-    this.letItGoAudio.volume = isDucked ? 0.06 : this.bgmVolume;
+    this.letItGoAudio.volume = isDucked ? 0.015 : this.bgmVolume;
   }
 
   updateBgmUi(isPlaying) {

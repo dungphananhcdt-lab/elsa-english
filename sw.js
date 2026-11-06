@@ -1,5 +1,5 @@
-// Elsa English Service Worker (Network-First Code Updates + 100% Offline Cache v25)
-const CACHE_NAME = 'elsa-ipad-v25';
+// Elsa English Service Worker (Network-First Code Updates + 100% Offline Cache v26)
+const CACHE_NAME = 'elsa-ipad-v26';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -30,6 +30,16 @@ const ASSETS_TO_CACHE = [
   './Image/kristoff_3d.png',
   './Image/frozen_poster.jpg',
   './Image/Ngocmy.jpg',
+  './Image/NgocMy (1).jpg',
+  './Image/NgocMy (1).png',
+  './Image/NgocMy (2).jpg',
+  './Image/NgocMy (2).png',
+  './Image/NgocMy (3).jpg',
+  './Image/NgocMy (3).png',
+  './Image/NgocMy (4).jpg',
+  './Image/NgocMy (4).png',
+  './Image/NgocMy (5).png',
+  './Image/NgocMy (6).png',
   './Image/elsa_anna_royal.jpg',
   './Image/elsa_portrait.jpg',
   './Image/let_it_go_song.mp3',

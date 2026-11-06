@@ -118,6 +118,7 @@
   // HOME SCREEN (iPad Friendly, Pure English, Direct Start)
   function renderHomeScreen(container) {
     const isMusicOn = window.soundEngine && window.soundEngine.isBgmPlaying();
+    const heroNgocMyImg = window.getRandomNgocMyImg ? window.getRandomNgocMyImg() : 'Image/Ngocmy.jpg';
 
     container.innerHTML = `
       <div class="home-hero-wrap">
@@ -143,10 +144,10 @@
             <img src="Image/olaf_3d.png" alt="Olaf" class="real-olaf-hero" id="hero-olaf" />
           </div>
 
-          <!-- Phải: Elsa Ngọc Mỹ (Cao bằng Elsa) -->
+          <!-- Phải: Elsa Ngọc Mỹ (Cao bằng Elsa) - Random ảnh công chúa Ngọc Mỹ -->
           <div class="hero-right-ngocmy" id="hero-ngocmy-box">
-            <div class="ngocmy-photo-frame" id="frame-ngocmy">
-              <img src="Image/Ngocmy.jpg" alt="Princess Elsa Ngọc Mỹ" class="ngocmy-photo-img" />
+            <div class="ngocmy-photo-frame" id="frame-ngocmy" title="Tap to see next picture!">
+              <img src="${heroNgocMyImg}" alt="Princess Elsa Ngọc Mỹ" class="ngocmy-photo-img" id="img-hero-ngocmy" />
               <div class="ngocmy-crown-badge">👑</div>
               <div class="ngocmy-name-tag">Elsa Ngọc Mỹ 🌸</div>
             </div>
@@ -172,13 +173,21 @@
             <span>Coloring</span>
           </button>
           <button class="quick-pill-btn btn-pill-gallery" id="btn-go-gallery">
-            <img src="Image/Ngocmy.jpg" class="home-btn-avatar" alt="Puzzle" />
+            <img src="${heroNgocMyImg}" class="home-btn-avatar" alt="Puzzle" />
             <span>Puzzle</span>
           </button>
           <button class="quick-pill-btn btn-pill-habits" id="btn-go-habits">
             <img src="Image/elsa_anna_royal.jpg" class="home-btn-avatar" alt="Habits" />
             <span>Habits</span>
           </button>
+        </div>
+
+        <!-- KHUNG HÌNH KỲ DIỆU PHỦ 1/3 MÀN HÌNH DƯỚI (FROZEN 3 MAGIC KINGDOM) -->
+        <div class="home-bottom-scenic-card" id="home-scenic-card" title="Tap to enter kingdom!">
+          <img src="Image/gallery_04_frozen3_magic.webp" class="home-bottom-scenic-img" alt="Enchanted Frozen World" />
+          <div class="home-bottom-scenic-overlay">
+            <span class="scenic-sparkle-pill">❄️ Explore Magic Forest & Kingdom ✨</span>
+          </div>
         </div>
       </div>
     `;
@@ -232,11 +241,27 @@
       window.speechEngine.speak("I like warm hugs!");
     };
 
-    container.querySelector('#frame-ngocmy').onclick = () => {
-      window.soundEngine.playSuccess();
-      window.createSparkles(container.querySelector('#frame-ngocmy'));
-      window.speechEngine.speak("Elsa Ngọc Mỹ! So sweet and beautiful! 💖");
-    };
+    const frameNgocMy = container.querySelector('#frame-ngocmy');
+    if (frameNgocMy) {
+      frameNgocMy.onclick = () => {
+        window.soundEngine.playSuccess();
+        window.createSparkles(frameNgocMy);
+        const imgEl = frameNgocMy.querySelector('#img-hero-ngocmy');
+        if (imgEl && window.getRandomNgocMyImg) {
+          imgEl.src = window.getRandomNgocMyImg();
+        }
+        window.speechEngine.speak("Elsa Ngọc Mỹ! So sweet and beautiful! 💖");
+      };
+    }
+
+    const homeScenicCard = container.querySelector('#home-scenic-card');
+    if (homeScenicCard) {
+      homeScenicCard.onclick = () => {
+        window.soundEngine.playMagic();
+        window.createSparkles(homeScenicCard);
+        window.showScreen('map');
+      };
+    }
   }
 
   // FOREST MAP SCREEN (Pure English, Elsa Themed)
@@ -301,7 +326,7 @@
 
           <button class="map-zone-card zone-puzzle" data-zone="gallery">
             <div class="zone-badge">Zone 6</div>
-            <img src="Image/Ngocmy.jpg" class="zone-character-thumb" alt="Elsa Photo Puzzle" />
+            <img src="${window.getRandomNgocMyImg ? window.getRandomNgocMyImg() : 'Image/Ngocmy.jpg'}" class="zone-character-thumb" alt="Elsa Photo Puzzle" />
             <div class="zone-name">🧩 Elsa's Photo Puzzle</div>
             <div class="zone-sub">Royal Jigsaw 4 & 6 Frames</div>
           </button>
@@ -385,7 +410,7 @@
     if (window.caches) {
       caches.keys().then(keys => {
         keys.forEach(k => {
-          if (k !== 'elsa-ipad-v25') caches.delete(k);
+          if (k !== 'elsa-ipad-v26') caches.delete(k);
         });
       });
     }
@@ -394,10 +419,10 @@
     window.showScreen('home');
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js?v=25')
+      navigator.serviceWorker.register('sw.js?v=26')
         .then(reg => {
           reg.update();
-          console.log('Elsa PWA Ready v25!');
+          console.log('Elsa PWA Ready v26!');
         })
         .catch(err => console.log('SW error:', err));
     }

@@ -9,6 +9,16 @@ const ELSA_BG_POOL = [
   'Image/sven_3d.png',
   'Image/kristoff_3d.png',
   'Image/Ngocmy.jpg',
+  'Image/NgocMy (1).jpg',
+  'Image/NgocMy (1).png',
+  'Image/NgocMy (2).jpg',
+  'Image/NgocMy (2).png',
+  'Image/NgocMy (3).jpg',
+  'Image/NgocMy (3).png',
+  'Image/NgocMy (4).jpg',
+  'Image/NgocMy (4).png',
+  'Image/NgocMy (5).png',
+  'Image/NgocMy (6).png',
   'Image/elsa_anna_royal.jpg',
   'Image/elsa_portrait.jpg',
   'Image/frozen_poster.jpg',
@@ -218,7 +228,11 @@ window.initCountingPond = function(container) {
     'Image/elsa_portrait.jpg',
     'Image/frozen_poster.jpg',
     'Image/elsa_anna_royal.jpg',
-    'Image/Ngocmy.jpg'
+    'Image/Ngocmy.jpg',
+    'Image/NgocMy (1).jpg',
+    'Image/NgocMy (2).jpg',
+    'Image/NgocMy (3).jpg',
+    'Image/NgocMy (4).jpg'
   ];
 
   // Tọa độ phân bố 10 vị trí hài hòa trên ảnh nền không bị trùng lặp hay lọt ra mép
@@ -568,7 +582,7 @@ window.initMusicHouse = function(container) {
       title: "Princess Elsa Ngọc Mỹ",
       sub: "Royal Magic Spotlight",
       tag: "Royal Spotlight 👑",
-      thumb: "Image/Ngocmy.jpg",
+      thumb: window.getRandomNgocMyImg ? window.getRandomNgocMyImg() : "Image/Ngocmy.jpg",
       isSpecialStage: true,
       desc: "Princess Elsa Ngọc Mỹ and Queen Elsa shine together in royal magic!"
     }
@@ -610,9 +624,8 @@ window.initMusicHouse = function(container) {
               ${forceOffline ? `
                 <div class="offline-cinema-player" id="offline-player">
                   <img src="${video.thumb}" class="offline-slide-img" id="cinema-slide-img" alt="${video.title}" />
-                  <div class="offline-overlay-controls">
-                    <button class="offline-big-play-btn" id="btn-offline-play-song">▶ Play Magic Show: ${video.title} ✨</button>
-                    <div class="offline-lyrics-pill" id="offline-lyrics">❄️ "Let it go, let it go, can't hold it back anymore..." 🎶</div>
+                  <div class="offline-overlay-controls" id="offline-overlay-controls">
+                    <button class="offline-big-play-btn" id="btn-offline-play-song">▶ Play Magic Show ✨</button>
                   </div>
                 </div>
               ` : `
@@ -627,20 +640,18 @@ window.initMusicHouse = function(container) {
               `}
             </div>
 
-            <!-- Video Info & Mode Toggle -->
-            <div class="cinema-now-playing-bar">
+            <!-- Video Info & Mode Toggle (Gọn gàng tối đa khung xem) -->
+            <div class="cinema-now-playing-bar compact-cinema-bar">
               <div class="now-playing-info">
-                <span class="video-tag-badge">${video.tag}</span>
-                <strong class="video-current-title">${video.title} - ${video.sub}</strong>
-                <p class="video-current-desc">${video.desc}</p>
+                <span class="video-current-title">🎵 ${video.title}</span>
               </div>
               <div class="cinema-action-buttons">
                 ${!video.isSpecialStage ? `
                   <button class="cinema-theater-toggle-btn ${isOfflineTheater ? 'active-theater-mode' : ''}" id="btn-toggle-theater-mode">
-                    ${isOfflineTheater ? '🌐 Watch Online HD' : '❄️ Magic Offline Video'}
+                    ${isOfflineTheater ? '🌐 Online' : '❄️ Magic Offline'}
                   </button>
                 ` : `
-                  <span class="video-tag-badge" style="color: #facc15;">✨ Royal Offline Mode</span>
+                  <span class="video-tag-badge" style="color: #facc15;">✨ Royal Theater</span>
                 `}
               </div>
             </div>
@@ -692,6 +703,9 @@ window.initMusicHouse = function(container) {
 
     // Play offline song & start picture slideshow
     const offlinePlayBtn = container.querySelector('#btn-offline-play-song');
+    const overlayControls = container.querySelector('#offline-overlay-controls');
+    const offlinePlayer = container.querySelector('#offline-player');
+
     if (offlinePlayBtn) {
       offlinePlayBtn.onclick = () => {
         window.soundEngine.playMagic();
@@ -700,27 +714,42 @@ window.initMusicHouse = function(container) {
         if (starsEl) starsEl.innerText = `⭐ ${window.getStars()}`;
         window.createSparkles(offlinePlayBtn);
 
-        offlinePlayBtn.style.display = 'none';
+        // Hide overlay controls so the whole photo is 100% visible without text blocking it
+        if (overlayControls) {
+          overlayControls.style.opacity = '0';
+          overlayControls.style.pointerEvents = 'none';
+        }
 
         // Play vocal song
         window.soundEngine.playLetItGoSong((isPlaying) => {
           if (!isPlaying && offlinePlayBtn) {
             offlinePlayBtn.style.display = 'inline-block';
             offlinePlayBtn.innerText = '🔄 Replay Magic Show';
+            if (overlayControls) {
+              overlayControls.style.opacity = '1';
+              overlayControls.style.pointerEvents = 'auto';
+            }
           }
         });
 
-        // Slideshow of Elsa & friends photos
+        // Slideshow of Elsa, Anna, Olaf & Princess Ngoc My photos (Randomized)
         const slides = [
           video.thumb,
+          "Image/Ngocmy.jpg",
+          "Image/NgocMy (1).jpg",
+          "Image/NgocMy (2).jpg",
+          "Image/NgocMy (3).jpg",
+          "Image/NgocMy (4).jpg",
+          "Image/gallery_04_frozen3_magic.webp",
           "Image/gallery_08_elsa_magic.jpg",
           "Image/gallery_03_elsa_spirit.jpeg",
           "Image/gallery_01_elsa_snow.webp",
+          "Image/gallery_07_elsa_castle.jpg",
           "Image/gallery_06_elsa_smile.jpg",
-          "Image/Ngocmy.jpg",
-          "Image/elsa_3d.png",
-          "Image/elsa_anna_royal.jpg"
-        ];
+          "Image/elsa_anna_royal.jpg",
+          "Image/elsa_portrait.jpg"
+        ].sort(() => 0.5 - Math.random());
+
         let slideIdx = 0;
         const imgEl = container.querySelector('#cinema-slide-img');
         if (imgEl) {
@@ -735,6 +764,18 @@ window.initMusicHouse = function(container) {
           }, 3200);
         }
       };
+
+      // Tap screen to toggle overlay controls while playing
+      if (offlinePlayer) {
+        offlinePlayer.onclick = (e) => {
+          if (e.target === offlinePlayBtn) return;
+          if (overlayControls) {
+            const isHidden = overlayControls.style.opacity === '0';
+            overlayControls.style.opacity = isHidden ? '1' : '0';
+            overlayControls.style.pointerEvents = isHidden ? 'auto' : 'none';
+          }
+        };
+      }
     }
 
     // Video selection

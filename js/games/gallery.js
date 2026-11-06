@@ -2,25 +2,34 @@
 (function() {
   const PUZZLE_PHOTOS = [
     { id: 1, name: "Elsa Ngọc Mỹ", title: "Princess Elsa Ngọc Mỹ 👑", url: "Image/Ngocmy.jpg", tag: "Princess" },
-    { id: 2, name: "Queen Elsa Magic", title: "Queen Elsa Magic ❄️", url: "Image/gallery_08_elsa_magic.jpg", tag: "Elsa" },
-    { id: 3, name: "Royal Sisters", title: "Elsa & Anna Royal 👑", url: "Image/elsa_anna_royal.jpg", tag: "Royal" },
-    { id: 4, name: "Frozen Friends", title: "Olaf & Friends ⛄", url: "Image/frozen_poster.jpg", tag: "Friends" },
-    { id: 5, name: "Ice Castle", title: "Crystal Ice Castle 🏰", url: "Image/gallery_07_elsa_castle.jpg", tag: "Castle" },
-    { id: 6, name: "Fifth Spirit", title: "Fifth Spirit Elsa 🤍", url: "Image/gallery_03_elsa_spirit.jpeg", tag: "Spirit" },
-    { id: 7, name: "Magic Forest", title: "Enchanted Journey 🍁", url: "Image/gallery_02_frozen2_journey.jpg", tag: "Journey" },
-    { id: 8, name: "Winter Magic", title: "Winter Frost ❄️", url: "Image/gallery_01_elsa_snow.webp", tag: "Magic" },
-    { id: 9, name: "Crystal Gown", title: "Elsa Sparkling Dress 💎", url: "Image/gallery_05_elsa_dress.jpg", tag: "Fashion" },
-    { id: 10, name: "Elsa Smile", title: "Queen Elsa Smile 👑", url: "Image/gallery_06_elsa_smile.jpg", tag: "Smile" },
-    { id: 11, name: "Frost Power", title: "Winter Frost Power ❄️", url: "Image/gallery_09_elsa_power.jpg", tag: "Power" },
-    { id: 12, name: "Royal Portrait", title: "Princess Elsa Portrait 💙", url: "Image/elsa_portrait.jpg", tag: "Portrait" },
-    { id: 13, name: "Queen Elsa 3D", title: "Queen Elsa ❄️", url: "Image/elsa_3d.png", tag: "Elsa" },
-    { id: 14, name: "Princess Anna 3D", title: "Princess Anna 🌸", url: "Image/anna_3d.png", tag: "Anna" },
-    { id: 15, name: "Olaf 3D", title: "Olaf the Snowman ⛄", url: "Image/olaf_3d.png", tag: "Olaf" },
-    { id: 16, name: "Sven 3D", title: "Sven the Reindeer 🦌", url: "Image/sven_3d.png", tag: "Friends" }
+    { id: 2, name: "Ngọc Mỹ Winter Fairy", title: "Princess Ngọc Mỹ Snow ❄️", url: "Image/NgocMy (1).jpg", tag: "Princess" },
+    { id: 3, name: "Ngọc Mỹ Royal Tiara", title: "Princess Ngọc Mỹ Tiara 👑", url: "Image/NgocMy (2).jpg", tag: "Princess" },
+    { id: 4, name: "Ngọc Mỹ Sweet Smile", title: "Princess Ngọc Mỹ Smile 💖", url: "Image/NgocMy (3).jpg", tag: "Princess" },
+    { id: 5, name: "Ngọc Mỹ Ice Castle", title: "Princess Ngọc Mỹ Gown 💎", url: "Image/NgocMy (4).jpg", tag: "Princess" },
+    { id: 6, name: "Queen Elsa Magic", title: "Queen Elsa Magic ❄️", url: "Image/gallery_08_elsa_magic.jpg", tag: "Elsa" },
+    { id: 7, name: "Royal Sisters", title: "Elsa & Anna Royal 👑", url: "Image/elsa_anna_royal.jpg", tag: "Royal" },
+    { id: 8, name: "Frozen Friends", title: "Olaf & Friends ⛄", url: "Image/frozen_poster.jpg", tag: "Friends" },
+    { id: 9, name: "Ice Castle", title: "Crystal Ice Castle 🏰", url: "Image/gallery_07_elsa_castle.jpg", tag: "Castle" },
+    { id: 10, name: "Fifth Spirit", title: "Fifth Spirit Elsa 🤍", url: "Image/gallery_03_elsa_spirit.jpeg", tag: "Spirit" },
+    { id: 11, name: "Magic Forest", title: "Enchanted Journey 🍁", url: "Image/gallery_02_frozen2_journey.jpg", tag: "Journey" },
+    { id: 12, name: "Winter Magic", title: "Winter Frost ❄️", url: "Image/gallery_01_elsa_snow.webp", tag: "Magic" },
+    { id: 13, name: "Crystal Gown", title: "Elsa Sparkling Dress 💎", url: "Image/gallery_05_elsa_dress.jpg", tag: "Fashion" },
+    { id: 14, name: "Elsa Smile", title: "Queen Elsa Smile 👑", url: "Image/gallery_06_elsa_smile.jpg", tag: "Smile" },
+    { id: 15, name: "Frost Power", title: "Winter Frost Power ❄️", url: "Image/gallery_09_elsa_power.jpg", tag: "Power" },
+    { id: 16, name: "Royal Portrait", title: "Princess Elsa Portrait 💙", url: "Image/elsa_portrait.jpg", tag: "Portrait" },
+    { id: 17, name: "Ngọc Mỹ Cutout 1", title: "Princess Ngọc Mỹ 🌸", url: "Image/NgocMy (1).png", tag: "Princess" },
+    { id: 18, name: "Ngọc Mỹ Cutout 2", title: "Princess Ngọc Mỹ ✨", url: "Image/NgocMy (2).png", tag: "Princess" },
+    { id: 19, name: "Ngọc Mỹ Cutout 3", title: "Princess Ngọc Mỹ 🤍", url: "Image/NgocMy (3).png", tag: "Princess" },
+    { id: 20, name: "Ngọc Mỹ Cutout 4", title: "Princess Ngọc Mỹ 🎀", url: "Image/NgocMy (4).png", tag: "Princess" },
+    { id: 21, name: "Queen Elsa 3D", title: "Queen Elsa 3D ❄️", url: "Image/elsa_3d.png", tag: "Elsa" },
+    { id: 22, name: "Princess Anna 3D", title: "Princess Anna 3D 🌸", url: "Image/anna_3d.png", tag: "Anna" },
+    { id: 23, name: "Olaf 3D", title: "Olaf the Snowman ⛄", url: "Image/olaf_3d.png", tag: "Olaf" },
+    { id: 24, name: "Sven 3D", title: "Sven the Reindeer 🦌", url: "Image/sven_3d.png", tag: "Friends" }
   ];
 
   window.initGalleryZone = function(container) {
-    let currentPhotoIdx = 0;
+    // Random chọn ảnh bắt đầu từ bộ sưu tập công chúa Ngọc Mỹ & Elsa
+    let currentPhotoIdx = Math.floor(Math.random() * 5);
     let pieceMode = 4; // 4 or 6 frames
     let placedIndices = new Set();
     let selectedPieceIdx = null; // for tap-to-place

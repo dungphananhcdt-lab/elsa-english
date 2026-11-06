@@ -1,4 +1,22 @@
 // Vocabulary Data for Toddlers 3-5 (Alphabet infused with Queen Elsa & Frozen Friends)
+window.NGOCMY_IMAGES = [
+  'Image/Ngocmy.jpg',
+  'Image/NgocMy (1).jpg',
+  'Image/NgocMy (1).png',
+  'Image/NgocMy (2).jpg',
+  'Image/NgocMy (2).png',
+  'Image/NgocMy (3).jpg',
+  'Image/NgocMy (3).png',
+  'Image/NgocMy (4).jpg',
+  'Image/NgocMy (4).png',
+  'Image/NgocMy (5).png',
+  'Image/NgocMy (6).png'
+];
+
+window.getRandomNgocMyImg = function() {
+  return window.NGOCMY_IMAGES[Math.floor(Math.random() * window.NGOCMY_IMAGES.length)];
+};
+
 window.VOCAB_DATA = {
   alphabet: [
     { letter: "A", word: "Anna", emoji: "🌸", color: "#EF476F", img: "Image/anna_3d.png" },
