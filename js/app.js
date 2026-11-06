@@ -118,7 +118,7 @@
   // HOME SCREEN (iPad Friendly, Pure English, Direct Start)
   function renderHomeScreen(container) {
     const isMusicOn = window.soundEngine && window.soundEngine.isBgmPlaying();
-    const heroNgocMyImg = window.getRandomNgocMyImg ? window.getRandomNgocMyImg() : 'Image/Ngocmy.jpg';
+    const heroNgocMyImg = 'Image/Ngocmy.jpg';
 
     container.innerHTML = `
       <div class="home-hero-wrap">
@@ -144,10 +144,10 @@
             <img src="Image/olaf_3d.png" alt="Olaf" class="real-olaf-hero" id="hero-olaf" />
           </div>
 
-          <!-- Phải: Elsa Ngọc Mỹ (Cao bằng Elsa) - Random ảnh công chúa Ngọc Mỹ -->
+          <!-- Phải: Elsa Ngọc Mỹ (Giữ nguyên như cũ Ngocmy.jpg) -->
           <div class="hero-right-ngocmy" id="hero-ngocmy-box">
-            <div class="ngocmy-photo-frame" id="frame-ngocmy" title="Tap to see next picture!">
-              <img src="${heroNgocMyImg}" alt="Princess Elsa Ngọc Mỹ" class="ngocmy-photo-img" id="img-hero-ngocmy" />
+            <div class="ngocmy-photo-frame" id="frame-ngocmy" title="Princess Elsa Ngọc Mỹ">
+              <img src="Image/Ngocmy.jpg" alt="Princess Elsa Ngọc Mỹ" class="ngocmy-photo-img" id="img-hero-ngocmy" />
               <div class="ngocmy-crown-badge">👑</div>
               <div class="ngocmy-name-tag">Elsa Ngọc Mỹ 🌸</div>
             </div>
@@ -173,7 +173,7 @@
             <span>Coloring</span>
           </button>
           <button class="quick-pill-btn btn-pill-gallery" id="btn-go-gallery">
-            <img src="${heroNgocMyImg}" class="home-btn-avatar" alt="Puzzle" />
+            <img src="Image/Ngocmy.jpg" class="home-btn-avatar" alt="Puzzle" />
             <span>Puzzle</span>
           </button>
           <button class="quick-pill-btn btn-pill-habits" id="btn-go-habits">
@@ -182,12 +182,9 @@
           </button>
         </div>
 
-        <!-- KHUNG HÌNH KỲ DIỆU PHỦ 1/3 MÀN HÌNH DƯỚI (FROZEN 3 MAGIC KINGDOM) -->
+        <!-- KHUNG HÌNH KỲ DIỆU PHỦ 1/3 MÀN HÌNH DƯỚI (FROZEN 3 MAGIC KINGDOM - CHIỀU CAO 1.5x) -->
         <div class="home-bottom-scenic-card" id="home-scenic-card" title="Tap to enter kingdom!">
           <img src="Image/gallery_04_frozen3_magic.webp" class="home-bottom-scenic-img" alt="Enchanted Frozen World" />
-          <div class="home-bottom-scenic-overlay">
-            <span class="scenic-sparkle-pill">❄️ Explore Magic Forest & Kingdom ✨</span>
-          </div>
         </div>
       </div>
     `;
@@ -246,10 +243,6 @@
       frameNgocMy.onclick = () => {
         window.soundEngine.playSuccess();
         window.createSparkles(frameNgocMy);
-        const imgEl = frameNgocMy.querySelector('#img-hero-ngocmy');
-        if (imgEl && window.getRandomNgocMyImg) {
-          imgEl.src = window.getRandomNgocMyImg();
-        }
         window.speechEngine.speak("Elsa Ngọc Mỹ! So sweet and beautiful! 💖");
       };
     }
@@ -410,7 +403,7 @@
     if (window.caches) {
       caches.keys().then(keys => {
         keys.forEach(k => {
-          if (k !== 'elsa-ipad-v26') caches.delete(k);
+          if (k !== 'elsa-ipad-v27') caches.delete(k);
         });
       });
     }
@@ -419,10 +412,10 @@
     window.showScreen('home');
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js?v=26')
+      navigator.serviceWorker.register('sw.js?v=27')
         .then(reg => {
           reg.update();
-          console.log('Elsa PWA Ready v26!');
+          console.log('Elsa PWA Ready v27!');
         })
         .catch(err => console.log('SW error:', err));
     }
