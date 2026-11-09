@@ -2021,7 +2021,7 @@ body {
 .habit-desc { font-size: 11px; color: #64748b; margin-bottom: 8px; }
 .habit-star-btn { background: #fff1f2; color: #e11d48; border: 1.5px solid #fecdd3; border-radius: 12px; padding: 4px 10px; font-size: 11px; font-weight: 800; }
 
-.sticker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sticker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
 .sticker-card { background: #ffffff; border-radius: 22px; padding: 12px 10px; text-align: center; border: 2px solid #e2e8f0; }
 .sticker-card.unlocked { border-color: #ffd166; background: linear-gradient(135deg, #ffffff, #fffbeb); }
 .sticker-img-box { position: relative; height: 85px; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }

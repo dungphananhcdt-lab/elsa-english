@@ -403,7 +403,7 @@
     if (window.caches) {
       caches.keys().then(keys => {
         keys.forEach(k => {
-          if (k !== 'elsa-ipad-v27') caches.delete(k);
+          if (k !== 'elsa-ipad-v28') caches.delete(k);
         });
       });
     }
@@ -412,10 +412,10 @@
     window.showScreen('home');
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js?v=27')
+      navigator.serviceWorker.register('sw.js?v=28')
         .then(reg => {
           reg.update();
-          console.log('Elsa PWA Ready v27!');
+          console.log('Elsa PWA Ready v28!');
         })
         .catch(err => console.log('SW error:', err));
     }

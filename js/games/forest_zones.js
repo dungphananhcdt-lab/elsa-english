@@ -232,7 +232,13 @@ window.initCountingPond = function(container) {
     'Image/NgocMy (1).jpg',
     'Image/NgocMy (2).jpg',
     'Image/NgocMy (3).jpg',
-    'Image/NgocMy (4).jpg'
+    'Image/NgocMy (4).jpg',
+    'Image/NgocMy (1).png',
+    'Image/NgocMy (2).png',
+    'Image/NgocMy (3).png',
+    'Image/NgocMy (4).png',
+    'Image/NgocMy (5).png',
+    'Image/NgocMy (6).png'
   ];
 
   // Tọa độ phân bố 10 vị trí hài hòa trên ảnh nền không bị trùng lặp hay lọt ra mép
@@ -582,9 +588,18 @@ window.initMusicHouse = function(container) {
       title: "Princess Elsa Ngọc Mỹ",
       sub: "Royal Magic Spotlight",
       tag: "Royal Spotlight 👑",
-      thumb: window.getRandomNgocMyImg ? window.getRandomNgocMyImg() : "Image/Ngocmy.jpg",
+      thumb: "Image/Ngocmy.jpg",
       isSpecialStage: true,
       desc: "Princess Elsa Ngọc Mỹ and Queen Elsa shine together in royal magic!"
+    },
+    {
+      id: "ngocmy_fairytale",
+      title: "Ngọc Mỹ Fairy Tale",
+      sub: "Little Princess Adventures",
+      tag: "Fairy Tale 🌸",
+      thumb: "Image/NgocMy (1).png",
+      isSpecialStage: true,
+      desc: "Little Princess Ngọc Mỹ in her enchanting fairytale adventures!"
     }
   ];
 
@@ -732,14 +747,21 @@ window.initMusicHouse = function(container) {
           }
         });
 
-        // Slideshow of Elsa, Anna, Olaf & Princess Ngoc My photos (Randomized)
-        const slides = [
-          video.thumb,
+        // Slideshow of Elsa, Anna, Olaf & Princess Ngoc My photos (Randomized - bao gồm toàn bộ 11 ảnh Ngọc Mỹ JPG & PNG)
+        const allNgocMyPhotos = [
           "Image/Ngocmy.jpg",
           "Image/NgocMy (1).jpg",
+          "Image/NgocMy (1).png",
           "Image/NgocMy (2).jpg",
+          "Image/NgocMy (2).png",
           "Image/NgocMy (3).jpg",
+          "Image/NgocMy (3).png",
           "Image/NgocMy (4).jpg",
+          "Image/NgocMy (4).png",
+          "Image/NgocMy (5).png",
+          "Image/NgocMy (6).png"
+        ];
+        const elsaFriendsPhotos = [
           "Image/gallery_04_frozen3_magic.webp",
           "Image/gallery_08_elsa_magic.jpg",
           "Image/gallery_03_elsa_spirit.jpeg",
@@ -748,11 +770,21 @@ window.initMusicHouse = function(container) {
           "Image/gallery_06_elsa_smile.jpg",
           "Image/elsa_anna_royal.jpg",
           "Image/elsa_portrait.jpg"
-        ].sort(() => 0.5 - Math.random());
+        ];
+
+        let slides = [];
+        if (video.id === 'ngocmy_elsa' || video.id === 'ngocmy_fairytale') {
+          // Tiết mục công chúa Ngọc Mỹ: Ưu tiên xáo trộn toàn bộ 11 bức ảnh của Ngọc Mỹ
+          slides = [...allNgocMyPhotos].sort(() => 0.5 - Math.random());
+        } else {
+          // Tiết mục chung: Toàn bộ 11 ảnh Ngọc Mỹ đan xen với các cảnh đẹp Elsa & Anna
+          slides = [video.thumb, ...allNgocMyPhotos, ...elsaFriendsPhotos].sort(() => 0.5 - Math.random());
+        }
 
         let slideIdx = 0;
         const imgEl = container.querySelector('#cinema-slide-img');
         if (imgEl) {
+          imgEl.src = slides[0];
           if (offlineSlideshowInterval) clearInterval(offlineSlideshowInterval);
           offlineSlideshowInterval = setInterval(() => {
             slideIdx = (slideIdx + 1) % slides.length;
@@ -1164,14 +1196,22 @@ window.initGoodHabits = function(container) {
 window.initStickerAlbum = function(container) {
   const stars = window.getStars();
   const stickers = [
-    { id: 1, name: 'Elsa', img: 'Image/elsa_3d.png', cost: 0 },
-    { id: 2, name: 'Olaf', img: 'Image/olaf_3d.png', cost: 4 },
-    { id: 3, name: 'Anna', img: 'Image/anna_3d.png', cost: 8 },
-    { id: 4, name: 'Sven', img: 'Image/sven_3d.png', cost: 12 },
-    { id: 5, name: 'Kristoff', img: 'Image/kristoff_3d.png', cost: 16 },
-    { id: 6, name: 'Princesses', img: 'Image/elsa_anna_royal.jpg', cost: 20 },
-    { id: 7, name: 'Crown', img: 'assets/images/crown.svg', cost: 25 },
-    { id: 8, name: 'Castle', img: 'assets/images/castle.svg', cost: 30 }
+    { id: 1, name: 'Princess Ngọc Mỹ', img: 'Image/Ngocmy.jpg', cost: 0 },
+    { id: 2, name: 'Elsa', img: 'Image/elsa_3d.png', cost: 0 },
+    { id: 3, name: 'Ngọc Mỹ Tiara', img: 'Image/NgocMy (2).jpg', cost: 2 },
+    { id: 4, name: 'Olaf', img: 'Image/olaf_3d.png', cost: 4 },
+    { id: 5, name: 'Ngọc Mỹ Fairy', img: 'Image/NgocMy (1).png', cost: 6 },
+    { id: 6, name: 'Anna', img: 'Image/anna_3d.png', cost: 8 },
+    { id: 7, name: 'Ngọc Mỹ Sparkle', img: 'Image/NgocMy (2).png', cost: 10 },
+    { id: 8, name: 'Sven', img: 'Image/sven_3d.png', cost: 12 },
+    { id: 9, name: 'Ngọc Mỹ Angel', img: 'Image/NgocMy (3).png', cost: 14 },
+    { id: 10, name: 'Kristoff', img: 'Image/kristoff_3d.png', cost: 16 },
+    { id: 11, name: 'Ngọc Mỹ Ribbon', img: 'Image/NgocMy (4).png', cost: 18 },
+    { id: 12, name: 'Princesses', img: 'Image/elsa_anna_royal.jpg', cost: 20 },
+    { id: 13, name: 'Ngọc Mỹ Sunshine', img: 'Image/NgocMy (5).png', cost: 22 },
+    { id: 14, name: 'Crown', img: 'assets/images/crown.svg', cost: 25 },
+    { id: 15, name: 'Ngọc Mỹ Magic', img: 'Image/NgocMy (6).png', cost: 28 },
+    { id: 16, name: 'Castle', img: 'assets/images/castle.svg', cost: 30 }
   ];
 
   function render() {

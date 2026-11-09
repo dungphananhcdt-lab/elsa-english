@@ -1,5 +1,5 @@
-// Elsa English Service Worker (Network-First Code Updates + 100% Offline Cache v26)
-const CACHE_NAME = 'elsa-ipad-v27';
+// Elsa English Service Worker (Network-First Code Updates + 100% Offline Cache v28)
+const CACHE_NAME = 'elsa-ipad-v28';
 
 const ASSETS_TO_CACHE = [
   './',
